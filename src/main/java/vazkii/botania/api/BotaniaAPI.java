@@ -83,9 +83,9 @@ public final class BotaniaAPI {
 	public static final List<RecipePureDaisy> pureDaisyRecipes = new ArrayList<>();
 	public static final List<RecipeManaInfusion> manaInfusionRecipes = new ArrayList<>();
 	public static final List<RecipeRuneAltar> runeAltarRecipes = new ArrayList<>();
-	public static final List<RecipeElvenTrade> elvenTradeRecipes = new ArrayList<>();
 	public static final List<RecipeBrew> brewRecipes = new ArrayList<>();
 	public static final List<RecipeManaInfusion> miniFlowerRecipes = new ArrayList<>();
+	public static final ResourceLocation ELVEN_TRADE_REGISTRY = new ResourceLocation("botania", "elven_trade");
 
 	public static final ResourceLocation DUMMY_SUBTILE_NAME = new ResourceLocation("botania", "dummy");
 	private static final RegistryNamespacedDefaultedByKey<ResourceLocation, Class<? extends SubTileEntity>> subTiles = new RegistryNamespacedDefaultedByKey<>(DUMMY_SUBTILE_NAME);
@@ -485,28 +485,6 @@ public final class BotaniaAPI {
 		RecipeManaInfusion recipe = registerManaInfusionRecipe(output, input, mana);
 		recipe.setCatalyst(RecipeManaInfusion.conjurationState);
 		return recipe;
-	}
-
-	/**
-	 * Registers a Elven Trade recipe (throw an item in an Alfheim Portal).
-	 * @param outputs The ItemStacks to return.
-	 * @param inputs The items required, can be ItemStack or ore dictionary entry string.
-	 * @return The recipe created.
-	 */
-	public static RecipeElvenTrade registerElvenTradeRecipe(ItemStack[] outputs, Object... inputs) {
-		RecipeElvenTrade recipe = new RecipeElvenTrade(outputs, inputs);
-		elvenTradeRecipes.add(recipe);
-		return recipe;
-	}
-
-	/**
-	 * Registers a Elven Trade recipe (throw an item into an Alfeim Portal).
-	 * @param output The ItemStack to return
-	 * @param inputs The items required, can be an ItemStack or an Ore Dictionary entry string.
-	 * @return The recipe created.
-	 */
-	public static RecipeElvenTrade registerElvenTradeRecipe(ItemStack output, Object... inputs) {
-		return registerElvenTradeRecipe(new ItemStack[]{ output }, inputs);
 	}
 
 	/**

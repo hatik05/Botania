@@ -3,14 +3,22 @@ package vazkii.botania.api.recipe;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeElvenTrade {
+/**
+ * Register elven trade recipes by listening for {@link net.minecraftforge.event.RegistryEvent.Register<RecipeElvenTrade>}.
+ */
+public class RecipeElvenTrade extends IForgeRegistryEntry.Impl<RecipeElvenTrade> {
 
 	private final ImmutableList<ItemStack> outputs;
 	private final ImmutableList<Object> inputs;
+
+	public RecipeElvenTrade(ItemStack output, Object... inputs) {
+		this(new ItemStack[] { output }, inputs);
+	}
 
 	public RecipeElvenTrade(ItemStack[] outputs, Object... inputs) {
 		this.outputs = ImmutableList.copyOf(outputs);

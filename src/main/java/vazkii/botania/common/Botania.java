@@ -23,6 +23,7 @@ import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ModFixs;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -37,14 +38,18 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerAboutToStartEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegistryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.ITwoNamedPage;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.lexicon.LexiconPage;
+import vazkii.botania.api.recipe.RecipeElvenTrade;
 import vazkii.botania.common.advancements.*;
 import vazkii.botania.common.block.ModBanners;
 import vazkii.botania.common.block.ModBlocks;
@@ -100,15 +105,17 @@ import vazkii.botania.common.world.WorldTypeSkyblock;
 import java.lang.reflect.InvocationTargetException;
 
 @Mod(modid = LibMisc.MOD_ID, name = LibMisc.MOD_NAME, version = LibMisc.VERSION, dependencies = LibMisc.DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY)
+@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class Botania {
 
 	public static boolean gardenOfGlassLoaded = false;
-
 	public static boolean thaumcraftLoaded = false;
 	public static boolean bcTriggersLoaded = false;
 	public static boolean bloodMagicLoaded = false;
 	public static boolean coloredLightsLoaded = false;
 	public static boolean etFuturumLoaded = false;
+
+	public static IForgeRegistry<RecipeElvenTrade> elvenTrades;
 
 	@Instance(LibMisc.MOD_ID)
 	public static Botania instance;
@@ -119,6 +126,15 @@ public class Botania {
 	private static ModFixs fixer;
 
 	public static final Logger LOGGER = LogManager.getLogger(LibMisc.MOD_ID);
+
+	@SubscribeEvent
+	public static void createRegistries(RegistryEvent.NewRegistry evt) {
+		elvenTrades = new RegistryBuilder<RecipeElvenTrade>()
+				.setName(BotaniaAPI.ELVEN_TRADE_REGISTRY)
+				.setType(RecipeElvenTrade.class)
+				.disableSaving()
+				.create();
+	}
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -165,7 +181,6 @@ public class Botania {
 		ModManaAlchemyRecipes.init();
 		ModManaConjurationRecipes.init();
 		ModManaInfusionRecipes.init();
-		ModElvenTradeRecipes.init();
 		ModBrewRecipes.init();
 		ModCraftingRecipes.init();
 		LexiconData.init();

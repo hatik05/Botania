@@ -10,10 +10,12 @@
  */
 package vazkii.botania.common.lexicon;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import scala.actors.threadpool.Arrays;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.IBrewContainer;
 import vazkii.botania.api.lexicon.LexiconCategory;
@@ -1276,9 +1278,9 @@ public final class LexiconData {
 		elvenResources.setPriority()
 		.setLexiconPages(new PageText("0"), new PageElvenRecipe("1", ModElvenTradeRecipes.dreamwoodRecipe),
 				new PageText("2"), new PageCraftingRecipe("10", ModCraftingRecipes.recipeDreamwoodTwig),
-				new PageElvenRecipe("3", ModElvenTradeRecipes.elementiumRecipes),
+				new PageElvenRecipe("3", ImmutableList.of(ModElvenTradeRecipes.elementiumRecipe, ModElvenTradeRecipes.elementiumBlockRecipe)),
 				new PageElvenRecipe("4", ModElvenTradeRecipes.pixieDustRecipe),
-				new PageElvenRecipe("5", ModElvenTradeRecipes.dragonstoneRecipes), new PageText("6"),
+				new PageElvenRecipe("5", ImmutableList.of(ModElvenTradeRecipes.dragonstoneRecipe, ModElvenTradeRecipes.dragonstoneBlockRecipe)), new PageText("6"),
 				new PageElvenRecipe("7", ModElvenTradeRecipes.elvenQuartzRecipe), new PageText("8"),
 				new PageElvenRecipe("9", ModElvenTradeRecipes.alfglassRecipe))
 		.setIcon(new ItemStack(ModItems.dragonstone));

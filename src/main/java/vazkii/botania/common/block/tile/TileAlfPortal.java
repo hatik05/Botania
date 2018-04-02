@@ -221,7 +221,7 @@ public class TileAlfPortal extends TileMod implements ITickable {
 			i++;
 		}
 
-		for(RecipeElvenTrade recipe : BotaniaAPI.elvenTradeRecipes) {
+		for(RecipeElvenTrade recipe : Botania.elvenTrades) {
 			if(recipe.matches(stacksIn, false)) {
 				if(consumeMana(null, 500, false)) {
 					recipe.matches(stacksIn, true);
