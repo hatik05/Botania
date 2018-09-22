@@ -126,12 +126,12 @@ botaniamisc.completed=완료
 botaniamisc.notCompleted=진행중
 botaniamisc.info=정보
 botaniamisc.challengeInfo=도전에 대해 자세히 알아보기
-botaniamisc.skyblockRangeTooLow=범위가 너무 작습니다. 250이상으로 설정해주세요.
-botaniamisc.skyblockRangeTooHigh=범위가 너무 큽니다. 10000000(천만)미만으로 설정해주세요.
+botaniamisc.skyblockRangeTooLow=범위가 너무 작습니다. 250 이상으로 설정해주세요.
+botaniamisc.skyblockRangeTooHigh=범위가 너무 큽니다. 10,000,000 미만으로 설정해주세요.
 botaniamisc.hideNotes=노트 숨기기
 botaniamisc.showNotes=노트 보이기
 botaniamisc.notes=노트
-botaniamisc.pay2win=아이템을 마나웅덩이에 빠트려서 업그레이드해보세요
+botaniamisc.pay2win=아이템을 마나웅덩이에 빠뜨려서 업그레이드해보세요
 botaniamisc.justDoIt=지금 당장
 
 # NEI INTEGRATION
@@ -409,7 +409,7 @@ advancement.botania:kingKey.desc=영웅적인 위업을 달성해서 왕의 열�
 advancement.botania:flugelEye.desc=영웅적인 위업을 달성해서 플뤼겔의 눈을 획득해보세요
 advancement.botania:thorRing=원스텝·레이어드
 advancement.botania:thorRing.desc=영웅적인 위업을 달성해서 토르의 반지를 획득해보세요
-advancement.botania:odinRing=로스트 타임 메모리
+advancement.botania:odinRing=로스타임 메모리
 advancement.botania:odinRing.desc=영웅적인 위업을 달성해서 오딘의 반지를 획득해보세요
 advancement.botania:lokiRing.desc=영웅적인 위업을 달성해서 로키의 반지를 획득해보세요
 
